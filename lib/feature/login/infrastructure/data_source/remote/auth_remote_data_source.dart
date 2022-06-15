@@ -4,6 +4,8 @@ import 'package:injectable/injectable.dart';
 
 abstract class AuthRemoteDataSource{
 Future<UserCredential> signInAsAnonymous();
+Future<bool> logout();
+Future<bool> checkIsLogin();
 }
 
 @LazySingleton(as: AuthRemoteDataSource)
@@ -17,13 +19,31 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
       return userCredential;
     } on FirebaseAuthException catch (e) {
       throw ServerException(errorMessage: e.message, errorCode: e.code);
-      // switch (e.code) {
-      //   case "operation-not-allowed":
-      //     throw "Anonymous auth hasn't been enabled for this project.";
-      //   default:
-      //     throw "Unknown error.";
-      // }
     }catch(e){
+      throw UnknownException(errorMessage: e.toString());
+    }
+  }
+
+  @override
+  Future<bool> logout() async{
+    try{
+      await FirebaseAuth.instance.signOut();
+      return true;
+    } catch (e){
+      throw UnknownException(errorMessage: e.toString());
+    }
+  }
+
+  @override
+  Future<bool> checkIsLogin() async{
+    try{
+      var user = FirebaseAuth.instance.currentUser;
+      if(user != null) {
+        return true;
+      } else{
+        return false;
+      }
+    } catch (e){
       throw UnknownException(errorMessage: e.toString());
     }
   }

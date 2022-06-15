@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:fruits_inventory/core/injection/injection.dart';
 import 'package:fruits_inventory/feature/fruits_data/infrastructure/model/response_fruits_model.dart';
 import 'package:fruits_inventory/feature/fruits_data/presentation/bloc/fruits_bloc.dart';
 import 'package:fruits_inventory/feature/fruits_data/presentation/home_bloc/home_bloc.dart';
+import 'package:fruits_inventory/feature/login/presentation/screen/login_screen.dart';
 
 class FruitsDataScreen extends StatelessWidget {
   const FruitsDataScreen({Key? key}) : super(key: key);
@@ -17,6 +19,30 @@ class FruitsDataScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Fruits Data'),
           automaticallyImplyLeading: false,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: BlocConsumer<FruitsBloc, FruitsState>(
+                listener: (context, state){
+                  if(state is LoggedOut){
+                    if(state.isSuccess){
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LoginScreen()), (route) => false);
+                    }
+                  }
+                },
+                builder: (context, state) {
+                  return InkWell(
+                      onTap: () {
+                        BlocProvider.of<FruitsBloc>(context).add(Logout());
+                      },
+                      child: const Icon(
+                        Icons.exit_to_app,
+                        size: 35,
+                      ));
+                },
+              ),
+            )
+          ],
         ),
         body: BlocConsumer<FruitsBloc, FruitsState>(
           listener: (context, state) {
@@ -39,8 +65,10 @@ class FruitsDataScreen extends StatelessWidget {
                             context: context,
                             builder: (BuildContext dialogCtx) {
                               return AlertDialog(
-                                content:
-                                    Text('${state.mostDuplicateFruitName ?? ''} total is ${state.mostDuplicateFruitQuantity ?? ''}', textAlign: TextAlign.center,),
+                                content: Text(
+                                  '${state.mostDuplicateFruitName ?? ''} total is ${state.mostDuplicateFruitQuantity ?? ''}',
+                                  textAlign: TextAlign.center,
+                                ),
                               );
                             });
                       }

@@ -19,32 +19,38 @@ mixin _$FruitsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getFruitData,
+    required TResult Function() logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getFruitData,
+    TResult Function()? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getFruitData,
+    TResult Function()? logout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetFruitData value) getFruitData,
+    required TResult Function(Logout value) logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetFruitData value)? getFruitData,
+    TResult Function(Logout value)? logout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFruitData value)? getFruitData,
+    TResult Function(Logout value)? logout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$GetFruitData implements GetFruitData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getFruitData,
+    required TResult Function() logout,
   }) {
     return getFruitData();
   }
@@ -115,6 +122,7 @@ class _$GetFruitData implements GetFruitData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getFruitData,
+    TResult Function()? logout,
   }) {
     return getFruitData?.call();
   }
@@ -123,6 +131,7 @@ class _$GetFruitData implements GetFruitData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getFruitData,
+    TResult Function()? logout,
     required TResult orElse(),
   }) {
     if (getFruitData != null) {
@@ -135,6 +144,7 @@ class _$GetFruitData implements GetFruitData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetFruitData value) getFruitData,
+    required TResult Function(Logout value) logout,
   }) {
     return getFruitData(this);
   }
@@ -143,6 +153,7 @@ class _$GetFruitData implements GetFruitData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetFruitData value)? getFruitData,
+    TResult Function(Logout value)? logout,
   }) {
     return getFruitData?.call(this);
   }
@@ -151,6 +162,7 @@ class _$GetFruitData implements GetFruitData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetFruitData value)? getFruitData,
+    TResult Function(Logout value)? logout,
     required TResult orElse(),
   }) {
     if (getFruitData != null) {
@@ -165,6 +177,108 @@ abstract class GetFruitData implements FruitsEvent {
 }
 
 /// @nodoc
+abstract class _$$LogoutCopyWith<$Res> {
+  factory _$$LogoutCopyWith(_$Logout value, $Res Function(_$Logout) then) =
+      __$$LogoutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LogoutCopyWithImpl<$Res> extends _$FruitsEventCopyWithImpl<$Res>
+    implements _$$LogoutCopyWith<$Res> {
+  __$$LogoutCopyWithImpl(_$Logout _value, $Res Function(_$Logout) _then)
+      : super(_value, (v) => _then(v as _$Logout));
+
+  @override
+  _$Logout get _value => super._value as _$Logout;
+}
+
+/// @nodoc
+
+class _$Logout implements Logout {
+  _$Logout();
+
+  @override
+  String toString() {
+    return 'FruitsEvent.logout()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Logout);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getFruitData,
+    required TResult Function() logout,
+  }) {
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getFruitData,
+    TResult Function()? logout,
+  }) {
+    return logout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getFruitData,
+    TResult Function()? logout,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetFruitData value) getFruitData,
+    required TResult Function(Logout value) logout,
+  }) {
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetFruitData value)? getFruitData,
+    TResult Function(Logout value)? logout,
+  }) {
+    return logout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetFruitData value)? getFruitData,
+    TResult Function(Logout value)? logout,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Logout implements FruitsEvent {
+  factory Logout() = _$Logout;
+}
+
+/// @nodoc
 mixin _$FruitsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -173,6 +287,7 @@ mixin _$FruitsState {
     required TResult Function(ResponseFruitsModel responseFruitsModel)
         successGetData,
     required TResult Function() errorGetData,
+    required TResult Function(bool isSuccess) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -181,6 +296,7 @@ mixin _$FruitsState {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -189,6 +305,7 @@ mixin _$FruitsState {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -198,6 +315,7 @@ mixin _$FruitsState {
     required TResult Function(Loading value) loading,
     required TResult Function(SuccessGetData value) successGetData,
     required TResult Function(ErrorGetData value) errorGetData,
+    required TResult Function(LoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -206,6 +324,7 @@ mixin _$FruitsState {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -214,6 +333,7 @@ mixin _$FruitsState {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -281,6 +401,7 @@ class _$FruitsInitial implements FruitsInitial {
     required TResult Function(ResponseFruitsModel responseFruitsModel)
         successGetData,
     required TResult Function() errorGetData,
+    required TResult Function(bool isSuccess) loggedOut,
   }) {
     return fruitsInitial();
   }
@@ -292,6 +413,7 @@ class _$FruitsInitial implements FruitsInitial {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
   }) {
     return fruitsInitial?.call();
   }
@@ -303,6 +425,7 @@ class _$FruitsInitial implements FruitsInitial {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
     required TResult orElse(),
   }) {
     if (fruitsInitial != null) {
@@ -318,6 +441,7 @@ class _$FruitsInitial implements FruitsInitial {
     required TResult Function(Loading value) loading,
     required TResult Function(SuccessGetData value) successGetData,
     required TResult Function(ErrorGetData value) errorGetData,
+    required TResult Function(LoggedOut value) loggedOut,
   }) {
     return fruitsInitial(this);
   }
@@ -329,6 +453,7 @@ class _$FruitsInitial implements FruitsInitial {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
   }) {
     return fruitsInitial?.call(this);
   }
@@ -340,6 +465,7 @@ class _$FruitsInitial implements FruitsInitial {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (fruitsInitial != null) {
@@ -396,6 +522,7 @@ class _$Loading implements Loading {
     required TResult Function(ResponseFruitsModel responseFruitsModel)
         successGetData,
     required TResult Function() errorGetData,
+    required TResult Function(bool isSuccess) loggedOut,
   }) {
     return loading();
   }
@@ -407,6 +534,7 @@ class _$Loading implements Loading {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
   }) {
     return loading?.call();
   }
@@ -418,6 +546,7 @@ class _$Loading implements Loading {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -433,6 +562,7 @@ class _$Loading implements Loading {
     required TResult Function(Loading value) loading,
     required TResult Function(SuccessGetData value) successGetData,
     required TResult Function(ErrorGetData value) errorGetData,
+    required TResult Function(LoggedOut value) loggedOut,
   }) {
     return loading(this);
   }
@@ -444,6 +574,7 @@ class _$Loading implements Loading {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
   }) {
     return loading?.call(this);
   }
@@ -455,6 +586,7 @@ class _$Loading implements Loading {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -539,6 +671,7 @@ class _$SuccessGetData implements SuccessGetData {
     required TResult Function(ResponseFruitsModel responseFruitsModel)
         successGetData,
     required TResult Function() errorGetData,
+    required TResult Function(bool isSuccess) loggedOut,
   }) {
     return successGetData(responseFruitsModel);
   }
@@ -550,6 +683,7 @@ class _$SuccessGetData implements SuccessGetData {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
   }) {
     return successGetData?.call(responseFruitsModel);
   }
@@ -561,6 +695,7 @@ class _$SuccessGetData implements SuccessGetData {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
     required TResult orElse(),
   }) {
     if (successGetData != null) {
@@ -576,6 +711,7 @@ class _$SuccessGetData implements SuccessGetData {
     required TResult Function(Loading value) loading,
     required TResult Function(SuccessGetData value) successGetData,
     required TResult Function(ErrorGetData value) errorGetData,
+    required TResult Function(LoggedOut value) loggedOut,
   }) {
     return successGetData(this);
   }
@@ -587,6 +723,7 @@ class _$SuccessGetData implements SuccessGetData {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
   }) {
     return successGetData?.call(this);
   }
@@ -598,6 +735,7 @@ class _$SuccessGetData implements SuccessGetData {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (successGetData != null) {
@@ -663,6 +801,7 @@ class _$ErrorGetData implements ErrorGetData {
     required TResult Function(ResponseFruitsModel responseFruitsModel)
         successGetData,
     required TResult Function() errorGetData,
+    required TResult Function(bool isSuccess) loggedOut,
   }) {
     return errorGetData();
   }
@@ -674,6 +813,7 @@ class _$ErrorGetData implements ErrorGetData {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
   }) {
     return errorGetData?.call();
   }
@@ -685,6 +825,7 @@ class _$ErrorGetData implements ErrorGetData {
     TResult Function()? loading,
     TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
     TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
     required TResult orElse(),
   }) {
     if (errorGetData != null) {
@@ -700,6 +841,7 @@ class _$ErrorGetData implements ErrorGetData {
     required TResult Function(Loading value) loading,
     required TResult Function(SuccessGetData value) successGetData,
     required TResult Function(ErrorGetData value) errorGetData,
+    required TResult Function(LoggedOut value) loggedOut,
   }) {
     return errorGetData(this);
   }
@@ -711,6 +853,7 @@ class _$ErrorGetData implements ErrorGetData {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
   }) {
     return errorGetData?.call(this);
   }
@@ -722,6 +865,7 @@ class _$ErrorGetData implements ErrorGetData {
     TResult Function(Loading value)? loading,
     TResult Function(SuccessGetData value)? successGetData,
     TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (errorGetData != null) {
@@ -733,4 +877,156 @@ class _$ErrorGetData implements ErrorGetData {
 
 abstract class ErrorGetData implements FruitsState {
   factory ErrorGetData() = _$ErrorGetData;
+}
+
+/// @nodoc
+abstract class _$$LoggedOutCopyWith<$Res> {
+  factory _$$LoggedOutCopyWith(
+          _$LoggedOut value, $Res Function(_$LoggedOut) then) =
+      __$$LoggedOutCopyWithImpl<$Res>;
+  $Res call({bool isSuccess});
+}
+
+/// @nodoc
+class __$$LoggedOutCopyWithImpl<$Res> extends _$FruitsStateCopyWithImpl<$Res>
+    implements _$$LoggedOutCopyWith<$Res> {
+  __$$LoggedOutCopyWithImpl(
+      _$LoggedOut _value, $Res Function(_$LoggedOut) _then)
+      : super(_value, (v) => _then(v as _$LoggedOut));
+
+  @override
+  _$LoggedOut get _value => super._value as _$LoggedOut;
+
+  @override
+  $Res call({
+    Object? isSuccess = freezed,
+  }) {
+    return _then(_$LoggedOut(
+      isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoggedOut implements LoggedOut {
+  _$LoggedOut(this.isSuccess);
+
+  @override
+  final bool isSuccess;
+
+  @override
+  String toString() {
+    return 'FruitsState.loggedOut(isSuccess: $isSuccess)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoggedOut &&
+            const DeepCollectionEquality().equals(other.isSuccess, isSuccess));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(isSuccess));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$LoggedOutCopyWith<_$LoggedOut> get copyWith =>
+      __$$LoggedOutCopyWithImpl<_$LoggedOut>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fruitsInitial,
+    required TResult Function() loading,
+    required TResult Function(ResponseFruitsModel responseFruitsModel)
+        successGetData,
+    required TResult Function() errorGetData,
+    required TResult Function(bool isSuccess) loggedOut,
+  }) {
+    return loggedOut(isSuccess);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? fruitsInitial,
+    TResult Function()? loading,
+    TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
+    TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
+  }) {
+    return loggedOut?.call(isSuccess);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fruitsInitial,
+    TResult Function()? loading,
+    TResult Function(ResponseFruitsModel responseFruitsModel)? successGetData,
+    TResult Function()? errorGetData,
+    TResult Function(bool isSuccess)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut(isSuccess);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FruitsInitial value) fruitsInitial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(SuccessGetData value) successGetData,
+    required TResult Function(ErrorGetData value) errorGetData,
+    required TResult Function(LoggedOut value) loggedOut,
+  }) {
+    return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FruitsInitial value)? fruitsInitial,
+    TResult Function(Loading value)? loading,
+    TResult Function(SuccessGetData value)? successGetData,
+    TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
+  }) {
+    return loggedOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FruitsInitial value)? fruitsInitial,
+    TResult Function(Loading value)? loading,
+    TResult Function(SuccessGetData value)? successGetData,
+    TResult Function(ErrorGetData value)? errorGetData,
+    TResult Function(LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoggedOut implements FruitsState {
+  factory LoggedOut(final bool isSuccess) = _$LoggedOut;
+
+  bool get isSuccess => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$LoggedOutCopyWith<_$LoggedOut> get copyWith =>
+      throw _privateConstructorUsedError;
 }

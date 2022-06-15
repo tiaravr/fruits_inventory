@@ -4,4 +4,6 @@ import 'package:fruits_inventory/core/error/failure.dart';
 
 abstract class AuthRepository{
   Future<Either<Failure, UserCredential>> signInAsAnonymous();
+  Future<Either<Failure, bool>> logout();
+  Future<Either<Failure, bool>> checkIsLogin();
 }

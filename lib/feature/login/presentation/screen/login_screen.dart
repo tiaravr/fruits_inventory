@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,19 +12,18 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<LoginBloc>(),
+      create: (context) => getIt<LoginBloc>()..add(CheckIsLogin()),
       child: Scaffold(
         body: Center(
           child: BlocConsumer<LoginBloc, LoginState>(
             listener: (context, state) {
               if (state is LoggedIn) {
                 print('movePage');
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const FruitsDataScreen(),
-                  ),
-                );
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FruitsDataScreen()),
+                    (route) => false);
               }
             },
             builder: (context, state) {

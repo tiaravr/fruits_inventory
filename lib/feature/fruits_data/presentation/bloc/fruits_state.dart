@@ -6,5 +6,6 @@ class FruitsState with _$FruitsState{
   factory FruitsState.loading() = Loading;
   factory FruitsState.successGetData(ResponseFruitsModel responseFruitsModel) = SuccessGetData;
   factory FruitsState.errorGetData() = ErrorGetData;
+  factory FruitsState.loggedOut(bool isSuccess) = LoggedOut;
 }
 

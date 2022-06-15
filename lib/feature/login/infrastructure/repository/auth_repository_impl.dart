@@ -23,4 +23,22 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(UnknownFailure(errorMessage: e.errorMessage));
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> logout() async {
+    try{
+      return Right(await remoteDataSource.logout());
+    } on UnknownException catch (e){
+      return Left(UnknownFailure(errorMessage: e.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> checkIsLogin() async {
+    try{
+      return Right(await remoteDataSource.checkIsLogin());
+    } on UnknownException catch (e){
+    return Left(UnknownFailure(errorMessage: e.errorMessage));
+    }
+  }
 }
