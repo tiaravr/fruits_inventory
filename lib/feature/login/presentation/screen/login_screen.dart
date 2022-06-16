@@ -24,6 +24,17 @@ class LoginScreen extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const FruitsDataScreen()),
                     (route) => false);
+              } else if( state is ErrorLogin){
+                showDialog(
+                    context: context,
+                    builder: (BuildContext dialogCtx) {
+                      return const AlertDialog(
+                        content: Text(
+                          'Login gagal. Silahkan coba lagi nanti',
+                          textAlign: TextAlign.center,
+                        ),
+                      );
+                    });
               }
             },
             builder: (context, state) {

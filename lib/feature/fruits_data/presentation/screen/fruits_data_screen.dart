@@ -110,29 +110,38 @@ class FruitsDataScreen extends StatelessWidget {
         if (state is FruitSelected) {
           fruitSelectedName = state.fruitSelectedName;
         }
-        return ListView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.only(
-              left: 10,
-              right: 10,
-              top: 16,
-            ),
-            itemCount: responseFruitsModel?.fruits?.length ?? 0,
-            itemBuilder: (BuildContext listCtx, int index) {
-              return ListTile(
-                onTap: () {
-                  BlocProvider.of<HomeBloc>(context).add(OnTapFruit(
-                      fruitName: responseFruitsModel?.fruits?[index].name));
-                },
-                selected: fruitSelectedName ==
-                    responseFruitsModel?.fruits?[index].name,
-                shape:
-                    const RoundedRectangleBorder(side: BorderSide(width: 0.1)),
-                title: Text(responseFruitsModel?.fruits?[index].name ?? ''),
-                trailing: Text(
-                    'total RP ${responseFruitsModel?.fruits?[index].price}'),
-              );
-            });
+        return Container(
+          height: MediaQuery.of(context).size.height,
+          child: ListView.builder(
+              shrinkWrap: true,
+              padding: const EdgeInsets.only(
+                left: 10,
+                right: 10,
+                top: 16,
+              ),
+              itemCount: responseFruitsModel?.fruits?.length ?? 0,
+              itemBuilder: (BuildContext listCtx, int index) {
+                return Container(
+                  // height: MediaQuery.of(context).size.height,
+                  padding:  EdgeInsets.only(
+                      bottom: index == (responseFruitsModel?.fruits?.length ?? 0) -1 ? 350 :0
+                  ),
+                  child: ListTile(
+                    onTap: () {
+                      BlocProvider.of<HomeBloc>(context).add(OnTapFruit(
+                          fruitName: responseFruitsModel?.fruits?[index].name));
+                    },
+                    selected: fruitSelectedName ==
+                        responseFruitsModel?.fruits?[index].name,
+                    shape:
+                        const RoundedRectangleBorder(side: BorderSide(width: 0.1)),
+                    title: Text(responseFruitsModel?.fruits?[index].name ?? ''),
+                    trailing: Text(
+                        'total RP ${responseFruitsModel?.fruits?[index].price}'),
+                  ),
+                );
+              }),
+        );
       },
     );
   }
